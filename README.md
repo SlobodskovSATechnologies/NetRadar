@@ -19,9 +19,9 @@ Ports can represent both physical interfaces (e.g. RJ45 Ethernet, SFP connectors
 Each connection also has a distribution by type of physical or virtual connection (like ports on nodes), however, they have additional fields for useful information about the created connection (for example, the length of the RJ45 or SFP connection path, the frequency and channel of the WiFi connection, etc.).
 
 ### Color designations
-All node colors depend on the state of the connections of this node itself. If the connection has a ping result of less than 100ms on all connections, the node is colored green. As soon as at least one connection has a ping result of more than 100ms, the node is yellow. If at least one connection cannot receive a ping result, the node turns red. This allows you to quickly draw the user's attention to emerging problems on the network.  
+All node colors depend on the state of the connections of this node itself. The node is colored green if ping results of all its connections are less than 100ms. As soon as at least one connection has a ping result of more than 100ms, the node is yellow. If at least one connection cannot receive a ping result, the node turns red. This allows you to quickly draw the user's attention to emerging problems on the network.  
 
-The links also vary in color, but this is a static color, it indicates the type of connection, not allowing them to be confused visually to evaluate the network switching structure without checking each port for its type. Links of different colors are non-connectable to avoid displaying impossible switches.  
+The color of a link indicates the type of connection, not allowing them to be confused visually to evaluate the network switching structure without checking each port for its type.  
 
 ## TODO
 1) Delete custom libs from dependencies.
