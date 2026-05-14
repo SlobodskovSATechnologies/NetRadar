@@ -2,7 +2,7 @@
 A useful cross-platform visual interface for managing large networks (using ping, traceroute, WoL, and many others), creating network diagrams with a large amount of diverse information in one application.
 
 ## Dependencies
-C++20
+C++20  
 Boost 1.86.0 (ASIO, Beast).  
 OpenSSL 3.5.2 LTSC.  
 ImGui latest (GLFW, GLUT), ImPlot, ImNodes.  
