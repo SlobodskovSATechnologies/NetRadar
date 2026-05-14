@@ -27,7 +27,7 @@ The color of a link indicates the type of connection, not allowing them to be co
 [More info on wiki](https://github.com/SlobodskovSATechnologies/NetRadar/wiki/Get-started)  
 
 ### Tools
-Built-in simple diagnostic and management tools (for example, ping, tracerote, WoL, etc.).
+Built-in simple diagnostic and management tools (for example, ping, tracerote, WoL, etc.).  
 [More info on wiki](https://github.com/SlobodskovSATechnologies/NetRadar/wiki/Tools)  
 
 ## TODO
