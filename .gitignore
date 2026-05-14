@@ -1,4 +1,9 @@
 /.vs
 /.github
-win/Home.cfg
-win/imgui.ini
+/bin
+/obj
+*.log
+*.tlog
+*.obj
+Windows/imgui.ini
+/Windows/x64
