@@ -8,6 +8,7 @@ OpenSSL 4.0.0
 ImGui latest (GLFW, GLUT), ImPlot, ImNodes  
 Custom backlib  
 Custom frontlib  
+More info on [wiki](https://github.com/SlobodskovSATechnologies/NetRadar/wiki/Dependencies-install)  
 
 ## Features
 
