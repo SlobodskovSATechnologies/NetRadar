@@ -26,7 +26,9 @@ Each connection also has a distribution by type of physical or virtual connectio
 
 ### Color designations
 All node colors depend on the state of the connections of this node itself. The node is colored green if ping results of all its connections are less than 100ms. As soon as at least one connection has a ping result of more than 100ms, the node is yellow. If at least one connection cannot receive a ping result, the node turns red. This allows you to quickly draw the user's attention to emerging problems on the network.  
-
+![G](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/Green.png)  
+![Y](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/Yellow.png)  
+![R](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/Red.png)  
 The color of a link indicates the type of connection, not allowing them to be confused visually to evaluate the network switching structure without checking each port for its type.  
 [More info on wiki](https://github.com/SlobodskovSATechnologies/NetRadar/wiki/Get-started)  
 
