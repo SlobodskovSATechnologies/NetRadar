@@ -147,47 +147,47 @@ inline const char* type_to_str(const ip_address_v6_multicast_type& _type_)
     //TODO
 }
 
-const std::pair<ip_network_v6, ip_address_v6_type> IPv6_ranges[17]
+const std::pair<network_v6, ip_address_v6_type> IPv6_ranges[17]
 {
-    { { ip_address_v6::from_string("::"            ), 128 }, ip_address_v6_type_Unspecified_address                },
-    { { ip_address_v6::from_string("::1"           ), 128 }, ip_address_v6_type_Loopback                           },
-    { { ip_address_v6::from_string("::ffff:0:0"    ),  96 }, ip_address_v6_type_IPv4_mapped_addresses              },
-    { { ip_address_v6::from_string("64:ff9b::"     ),  96 }, ip_address_v6_type_NAT64_translation                  },
-    { { ip_address_v6::from_string("64:ff9b:1::"   ),  48 }, ip_address_v6_type_Local_use_translation              },
-    { { ip_address_v6::from_string("100::"         ),  64 }, ip_address_v6_type_Discard_prefix                     },
-    { { ip_address_v6::from_string("2001::"        ),  32 }, ip_address_v6_type_Teredo_tunneling                   },
-    { { ip_address_v6::from_string("2001:20::"     ),  28 }, ip_address_v6_type_ORCHIDv2                           },
-    { { ip_address_v6::from_string("2001:db8::"    ),  32 }, ip_address_v6_type_Documentation_and_example          },
-    { { ip_address_v6::from_string("2002::"        ),  16 }, ip_address_v6_type_6to4                               },
-    { { ip_address_v6::from_string("3fff::"        ),  20 }, ip_address_v6_type_Documentation_and_example          },
-    { { ip_address_v6::from_string("5f00::"        ),  16 }, ip_address_v6_type_SRv6                               },
-    { { ip_address_v6::from_string("fc00::"        ),   7 }, ip_address_v6_type_Unique_local_address               },
-    { { ip_address_v6::from_string("fe80::"        ),  64 }, ip_address_v6_type_Link_local_address                 },
+    { { make_address_v6("::"            ), 128 }, ip_address_v6_type_Unspecified_address                },
+    { { make_address_v6("::1"           ), 128 }, ip_address_v6_type_Loopback                           },
+    { { make_address_v6("::ffff:0:0"    ),  96 }, ip_address_v6_type_IPv4_mapped_addresses              },
+    { { make_address_v6("64:ff9b::"     ),  96 }, ip_address_v6_type_NAT64_translation                  },
+    { { make_address_v6("64:ff9b:1::"   ),  48 }, ip_address_v6_type_Local_use_translation              },
+    { { make_address_v6("100::"         ),  64 }, ip_address_v6_type_Discard_prefix                     },
+    { { make_address_v6("2001::"        ),  32 }, ip_address_v6_type_Teredo_tunneling                   },
+    { { make_address_v6("2001:20::"     ),  28 }, ip_address_v6_type_ORCHIDv2                           },
+    { { make_address_v6("2001:db8::"    ),  32 }, ip_address_v6_type_Documentation_and_example          },
+    { { make_address_v6("2002::"        ),  16 }, ip_address_v6_type_6to4                               },
+    { { make_address_v6("3fff::"        ),  20 }, ip_address_v6_type_Documentation_and_example          },
+    { { make_address_v6("5f00::"        ),  16 }, ip_address_v6_type_SRv6                               },
+    { { make_address_v6("fc00::"        ),   7 }, ip_address_v6_type_Unique_local_address               },
+    { { make_address_v6("fe80::"        ),  64 }, ip_address_v6_type_Link_local_address                 },
 
-    { { ip_address_v6::from_string("ff02::1:ff00:0"), 104 }, ip_address_v6_type_Multicast_Solicited_node_address   },
-    { { ip_address_v6::from_string("ff02::2:ff00:0"), 104 }, ip_address_v6_type_Multicast_Node_information_queries },
-    { { ip_address_v6::from_string("ff00::"        ),   8 }, ip_address_v6_type_Multicast_address                  }
+    { { make_address_v6("ff02::1:ff00:0"), 104 }, ip_address_v6_type_Multicast_Solicited_node_address   },
+    { { make_address_v6("ff02::2:ff00:0"), 104 }, ip_address_v6_type_Multicast_Node_information_queries },
+    { { make_address_v6("ff00::"        ),   8 }, ip_address_v6_type_Multicast_address                  }
 };
-const std::pair<ip_network_v6, ip_address_v6_multicast_type> IPv6_multicast_addresses[20]
+const std::pair<network_v6, ip_address_v6_multicast_type> IPv6_multicast_addresses[20]
 {
-    { { ip_address_v6::from_string("ff00::1"  ), ip_address_v6_scope_type_Interface_local }, ip_address_v6_multicast_type_All_nodes_address                    },
-    { { ip_address_v6::from_string("ff00::1"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_nodes_address                    },
-    { { ip_address_v6::from_string("ff00::2"  ), ip_address_v6_scope_type_Interface_local }, ip_address_v6_multicast_type_All_routers                          },
-    { { ip_address_v6::from_string("ff00::2"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_routers                          },
-    { { ip_address_v6::from_string("ff00::2"  ), ip_address_v6_scope_type_Site_local      }, ip_address_v6_multicast_type_All_routers                          },
-    { { ip_address_v6::from_string("ff00::5"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_OSPFIGP                              },
-    { { ip_address_v6::from_string("ff00::6"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_OSPFIGP_designated_routers           },
-    { { ip_address_v6::from_string("ff00::9"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_RIP_routers                          },
-    { { ip_address_v6::from_string("ff00::a"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_EIGRP_routers                        },
-    { { ip_address_v6::from_string("ff00::c"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_Web_Services_Dynamic_Discovery       },
-    { { ip_address_v6::from_string("ff00::d"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_PIM_routers                      },
-    { { ip_address_v6::from_string("ff00::1a" ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_RPL_routers                      },
-    { { ip_address_v6::from_string("ff00::fb" ), ip_address_v6_scope_type_All             }, ip_address_v6_multicast_type_mDNSv6                               },
-    { { ip_address_v6::from_string("ff00::101"), ip_address_v6_scope_type_All             }, ip_address_v6_multicast_type_All_NTP_servers                      },
-    { { ip_address_v6::from_string("ff00::1:1"), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_Link_name                            },
-    { { ip_address_v6::from_string("ff00::1:2"), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_DHCPv6_servers_and_relay             },
-    { { ip_address_v6::from_string("ff00::1:3"), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_Link_local_multicast_name_resolution },
-    { { ip_address_v6::from_string("ff00::1:3"), ip_address_v6_scope_type_Site_local      }, ip_address_v6_multicast_type_All_DHCPv6_servers_for_relay_agent   },
+    { { make_address_v6("ff00::1"  ), ip_address_v6_scope_type_Interface_local }, ip_address_v6_multicast_type_All_nodes_address                    },
+    { { make_address_v6("ff00::1"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_nodes_address                    },
+    { { make_address_v6("ff00::2"  ), ip_address_v6_scope_type_Interface_local }, ip_address_v6_multicast_type_All_routers                          },
+    { { make_address_v6("ff00::2"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_routers                          },
+    { { make_address_v6("ff00::2"  ), ip_address_v6_scope_type_Site_local      }, ip_address_v6_multicast_type_All_routers                          },
+    { { make_address_v6("ff00::5"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_OSPFIGP                              },
+    { { make_address_v6("ff00::6"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_OSPFIGP_designated_routers           },
+    { { make_address_v6("ff00::9"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_RIP_routers                          },
+    { { make_address_v6("ff00::a"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_EIGRP_routers                        },
+    { { make_address_v6("ff00::c"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_Web_Services_Dynamic_Discovery       },
+    { { make_address_v6("ff00::d"  ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_PIM_routers                      },
+    { { make_address_v6("ff00::1a" ), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_All_RPL_routers                      },
+    { { make_address_v6("ff00::fb" ), ip_address_v6_scope_type_All             }, ip_address_v6_multicast_type_mDNSv6                               },
+    { { make_address_v6("ff00::101"), ip_address_v6_scope_type_All             }, ip_address_v6_multicast_type_All_NTP_servers                      },
+    { { make_address_v6("ff00::1:1"), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_Link_name                            },
+    { { make_address_v6("ff00::1:2"), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_DHCPv6_servers_and_relay             },
+    { { make_address_v6("ff00::1:3"), ip_address_v6_scope_type_Link_local      }, ip_address_v6_multicast_type_Link_local_multicast_name_resolution },
+    { { make_address_v6("ff00::1:3"), ip_address_v6_scope_type_Site_local      }, ip_address_v6_multicast_type_All_DHCPv6_servers_for_relay_agent   },
 };
 
 // IPv4
@@ -231,32 +231,32 @@ inline const char* type_to_str(const ip_address_v4_type& _type_)
     }
 }
 
-const std::pair<ip_network_v4, ip_address_v4_type> IPv4_ranges[18]
+const std::pair<network_v4, ip_address_v4_type> IPv4_ranges[18]
 {
-    { { ip_address_v4::from_string("0.0.0.0"        ),  8 }, ip_address_v4_type_Current_network           },
-    { { ip_address_v4::from_string("10.0.0.0"       ),  8 }, ip_address_v4_type_Local_communications      },
-    { { ip_address_v4::from_string("100.64.0.0"     ), 10 }, ip_address_v4_type_Shared_address_space      },
-    { { ip_address_v4::from_string("127.0.0.0"      ),  8 }, ip_address_v4_type_Loopback                  },
-    { { ip_address_v4::from_string("169.254.0.0"    ), 16 }, ip_address_v4_type_Link_local_addresses      },
-    { { ip_address_v4::from_string("172.16.0.0"     ), 12 }, ip_address_v4_type_Local_communications      },
+    { { make_address_v4("0.0.0.0"        ),  8 }, ip_address_v4_type_Current_network           },
+    { { make_address_v4("10.0.0.0"       ),  8 }, ip_address_v4_type_Local_communications      },
+    { { make_address_v4("100.64.0.0"     ), 10 }, ip_address_v4_type_Shared_address_space      },
+    { { make_address_v4("127.0.0.0"      ),  8 }, ip_address_v4_type_Loopback                  },
+    { { make_address_v4("169.254.0.0"    ), 16 }, ip_address_v4_type_Link_local_addresses      },
+    { { make_address_v4("172.16.0.0"     ), 12 }, ip_address_v4_type_Local_communications      },
 
-    { { ip_address_v4::from_string("192.0.0.0"      ), 29 }, ip_address_v4_type_DS_Lite                   },
-    { { ip_address_v4::from_string("192.0.0.0"      ), 24 }, ip_address_v4_type_IETF_protocol             },
+    { { make_address_v4("192.0.0.0"      ), 29 }, ip_address_v4_type_DS_Lite                   },
+    { { make_address_v4("192.0.0.0"      ), 24 }, ip_address_v4_type_IETF_protocol             },
 
-    { { ip_address_v4::from_string("192.0.2.0"      ), 24 }, ip_address_v4_type_Documentation_and_example },
-    { { ip_address_v4::from_string("192.88.99.0"    ), 24 }, ip_address_v4_type_Reserved                  }, //Formerly used for IPv6 to IPv4 relay (included IPv6 address block 2002::/16).
-    { { ip_address_v4::from_string("192.168.0.0"    ), 16 }, ip_address_v4_type_Local_communications      },
-    { { ip_address_v4::from_string("198.18.0.0"     ), 15 }, ip_address_v4_type_Benchmark_testing         },
-    { { ip_address_v4::from_string("198.51.100.0"   ), 24 }, ip_address_v4_type_Documentation_and_example },
-    { { ip_address_v4::from_string("203.0.113.0"    ), 24 }, ip_address_v4_type_Documentation_and_example },
-    { { ip_address_v4::from_string("224.0.0.0"      ),  4 }, ip_address_v4_type_Multicast_address         },
-    { { ip_address_v4::from_string("233.252.0.0"    ), 24 }, ip_address_v4_type_Documentation_and_example },
-    { { ip_address_v4::from_string("240.0.0.0"      ),  4 }, ip_address_v4_type_Reserved                  }, //Reserved for future use (former Class E network).
-    { { ip_address_v4::from_string("255.255.255.255"), 32 }, ip_address_v4_type_Broadcast                 }  //Reserved for the "limited broadcast" destination address.
+    { { make_address_v4("192.0.2.0"      ), 24 }, ip_address_v4_type_Documentation_and_example },
+    { { make_address_v4("192.88.99.0"    ), 24 }, ip_address_v4_type_Reserved                  }, //Formerly used for IPv6 to IPv4 relay (included IPv6 address block 2002::/16).
+    { { make_address_v4("192.168.0.0"    ), 16 }, ip_address_v4_type_Local_communications      },
+    { { make_address_v4("198.18.0.0"     ), 15 }, ip_address_v4_type_Benchmark_testing         },
+    { { make_address_v4("198.51.100.0"   ), 24 }, ip_address_v4_type_Documentation_and_example },
+    { { make_address_v4("203.0.113.0"    ), 24 }, ip_address_v4_type_Documentation_and_example },
+    { { make_address_v4("224.0.0.0"      ),  4 }, ip_address_v4_type_Multicast_address         },
+    { { make_address_v4("233.252.0.0"    ), 24 }, ip_address_v4_type_Documentation_and_example },
+    { { make_address_v4("240.0.0.0"      ),  4 }, ip_address_v4_type_Reserved                  }, //Reserved for future use (former Class E network).
+    { { make_address_v4("255.255.255.255"), 32 }, ip_address_v4_type_Broadcast                 }  //Reserved for the "limited broadcast" destination address.
 };
 
 //TODO check
-inline bool is_ip_in_range(const ip_address_v4& _ip_, const ip_network_v4& _range_)
+inline bool is_ip_in_range(const ip_address_v4& _ip_, const network_v4& _range_)
 {
     //ip_network_v4 buffer(_ip_, 32);
     //return buffer.is_subnet_of(_range_);
@@ -274,7 +274,7 @@ inline bool is_ip_in_range(const ip_address_v4& _ip_, const ip_network_v4& _rang
     return true;
 }
 //TODO check
-inline bool is_ip_in_range(const ip_address_v6& _ip_, const ip_network_v6& _range_)
+inline bool is_ip_in_range(const ip_address_v6& _ip_, const network_v6& _range_)
 {
     //ip_network_v6 buffer(_ip_, 128);
     //return buffer.is_subnet_of(_range_);

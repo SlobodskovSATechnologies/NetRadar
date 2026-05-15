@@ -35,14 +35,17 @@
 using namespace Connections::Ethernet::Utils;
 using nlohmann::json;
 
-typedef boost::asio::ip::network_v4  ip_network_v4;
-typedef boost::asio::ip::network_v6  ip_network_v6;
+using boost::asio::ip::network_v4;
+using boost::asio::ip::network_v6;
 
-typedef boost::asio::ip::address_v4  ip_address_v4;
-typedef boost::asio::ip::address_v6  ip_address_v6;
-typedef boost::asio::ip::address     ip_address;
+using boost::asio::ip::address;
+using boost::asio::ip::address_v4;
+using boost::asio::ip::address_v6;
+using boost::asio::ip::mac;
 
-typedef boost::asio::ip::mac        mac_address;
+using boost::asio::ip::make_address;
+using boost::asio::ip::make_address_v4;
+using boost::asio::ip::make_address_v6;
 
 #include "CustomInputs.hpp"
 #include "Device.hpp"
@@ -123,7 +126,7 @@ static void show()
     //Обновляем данные нашего компьютера
     //TODO: Add MAC address retrieval for local interfaces and use it here instead of empty vector
     //TODO: Автоматически добавлять интерфейсы и их типы
-    DevicesList[0] = Device_t{ EthernetServices::getLocalIP_v4(), EthernetServices::getLocalIP_v6(), {}, "этот компьютер", false, false,
+    DevicesList[0] = Device_t{ Connections::Ethernet::Utils::get_local_IPs_v4(), Connections::Ethernet::Utils::get_local_IPs_v6(), {}, "этот компьютер", false, false,
         {
             {"Eth"     , Device_port_type_RJ45   },
             {"Optic"   , Device_port_type_SFP    },
@@ -1227,17 +1230,17 @@ int main()
     //return 0;
 
     DevicesList.push_back({});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("8.8.8.8"       ), ip_address_v4::from_string("8.8.4.4"        )}, {ip_address_v6::from_string("2001:4860:4860::8888"), ip_address_v6::from_string("2001:4860:4860::8844"  )}, {}, "DNS Google"       , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("77.88.8.1"     ), ip_address_v4::from_string("77.88.8.8"      )}, {ip_address_v6::from_string("2a02:6b8::feed:0ff"  ), ip_address_v6::from_string("2a02:6b8:0:1::feed:0ff")}, {}, "DNS Yandex"       , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("1.1.1.1"       ), ip_address_v4::from_string("1.0.0.1"        )}, {ip_address_v6::from_string("2606:4700:4700::1111"), ip_address_v6::from_string("2606:4700:4700::1001"  )}, {}, "DNS Cloudfare"    , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("9.9.9.9"       ), ip_address_v4::from_string("149.112.112.112")}, {ip_address_v6::from_string("2620:fe::fe"         ), ip_address_v6::from_string("2620:fe::9"            )}, {}, "DNS Quad9"        , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("208.67.222.222"), ip_address_v4::from_string("208.67.220.220" )}, {ip_address_v6::from_string("2620:119:35::35"     ), ip_address_v6::from_string("2620:119:53::53"       )}, {}, "DNS OpenDNS"      , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("216.87.84.211" ), ip_address_v4::from_string("23.90.4.6"      )}, {                                                                                                        }, {}, "DNS OpenNIC"      , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("185.228.168.9" ), ip_address_v4::from_string("185.228.169.9"  )}, {ip_address_v6::from_string("2a0d:2a00:1::1"      ), ip_address_v6::from_string("2a0d:2a00:2::2"        )}, {}, "DNS CleanBrowsing", true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("76.76.19.19"   ), ip_address_v4::from_string("76.223.122.150" )}, {ip_address_v6::from_string("2602:fcbc::ad"       ), ip_address_v6::from_string("2602:fcbc:2::ad"       )}, {}, "DNS AlternateDNS" , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("94.140.14.14"  ), ip_address_v4::from_string("94.140.15.15"   )}, {ip_address_v6::from_string("2a10:50c0::ad1:ff"   ), ip_address_v6::from_string("2a10:50c0::ad2:ff"     )}, {}, "DNS AdGuardDNS"   , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("76.76.2.0"     ), ip_address_v4::from_string("76.76.10.0"     )}, {ip_address_v6::from_string("2606:1a40::"         ), ip_address_v6::from_string("2606:1a40:1::"         )}, {}, "DNS ControlD"     , true, true, {}, {{"интернет"}}});
-    DevicesList.push_back(Device_t{{ip_address_v4::from_string("64.6.64.6"     ), ip_address_v4::from_string("64.6.65.6"      )}, {ip_address_v6::from_string("2620:74:1b::1:1"     ), ip_address_v6::from_string("2620:74:1c::2:2"       )}, {}, "DNS Verisign"     , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("8.8.8.8"       ), make_address_v4("8.8.4.4"        )}, {make_address_v6("2001:4860:4860::8888"), make_address_v6("2001:4860:4860::8844"  )}, {}, "DNS Google"       , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("77.88.8.1"     ), make_address_v4("77.88.8.8"      )}, {make_address_v6("2a02:6b8::feed:0ff"  ), make_address_v6("2a02:6b8:0:1::feed:0ff")}, {}, "DNS Yandex"       , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("1.1.1.1"       ), make_address_v4("1.0.0.1"        )}, {make_address_v6("2606:4700:4700::1111"), make_address_v6("2606:4700:4700::1001"  )}, {}, "DNS Cloudfare"    , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("9.9.9.9"       ), make_address_v4("149.112.112.112")}, {make_address_v6("2620:fe::fe"         ), make_address_v6("2620:fe::9"            )}, {}, "DNS Quad9"        , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("208.67.222.222"), make_address_v4("208.67.220.220" )}, {make_address_v6("2620:119:35::35"     ), make_address_v6("2620:119:53::53"       )}, {}, "DNS OpenDNS"      , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("216.87.84.211" ), make_address_v4("23.90.4.6"      )}, {                                                                                                        }, {}, "DNS OpenNIC"      , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("185.228.168.9" ), make_address_v4("185.228.169.9"  )}, {make_address_v6("2a0d:2a00:1::1"      ), make_address_v6("2a0d:2a00:2::2"        )}, {}, "DNS CleanBrowsing", true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("76.76.19.19"   ), make_address_v4("76.223.122.150" )}, {make_address_v6("2602:fcbc::ad"       ), make_address_v6("2602:fcbc:2::ad"       )}, {}, "DNS AlternateDNS" , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("94.140.14.14"  ), make_address_v4("94.140.15.15"   )}, {make_address_v6("2a10:50c0::ad1:ff"   ), make_address_v6("2a10:50c0::ad2:ff"     )}, {}, "DNS AdGuardDNS"   , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("76.76.2.0"     ), make_address_v4("76.76.10.0"     )}, {make_address_v6("2606:1a40::"         ), make_address_v6("2606:1a40:1::"         )}, {}, "DNS ControlD"     , true, true, {}, {{"интернет"}}});
+    DevicesList.push_back(Device_t{{make_address_v4("64.6.64.6"     ), make_address_v4("64.6.65.6"      )}, {make_address_v6("2620:74:1b::1:1"     ), make_address_v6("2620:74:1c::2:2"       )}, {}, "DNS Verisign"     , true, true, {}, {{"интернет"}}});
 
     auto n1     = NodeSpace.addNode<SimpleSum >({  40,  40 });
     auto n2     = NodeSpace.addNode<SimpleSum >({  40, 150 });
