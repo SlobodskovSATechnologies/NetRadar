@@ -33,9 +33,9 @@ The color of a link indicates the type of connection, not allowing them to be co
 ### Tools
 Built-in simple diagnostic and management tools (for example, ping, tracerote, WoL, etc.).  
 ![t1](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/Traceroute.png)
-![t2](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/WoL.png)
-![t3](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/DNS.png)
-![t4](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/rDNS.png)
+![t2](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/WoL.png)  
+![t3](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/rDNS.png)
+![t4](https://github.com/SlobodskovSATechnologies/NetRadar/blob/main/github/readme/DNS.png)
   
 [More info on wiki](https://github.com/SlobodskovSATechnologies/NetRadar/wiki/Tools)  
 
